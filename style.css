@@ -1,0 +1,487 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap");
+
+:root {
+  --white: #fff;
+  --black: #222;
+  --greenyellow: #adff2f;
+  --orangered: #ff4500;
+  --light-grey: #ccc;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 1em 2em;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.light-mode,
+body.dark-mode header {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+body.dark-mode,
+body.light-mode header {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+body.dark-mode nav ul li a {
+  color: var(--black);
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 12px;
+  height: 4.5em;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 2em;
+}
+
+.title {
+  margin-left: 2em;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.title b {
+  font-size: 1.25em;
+}
+
+.title i {
+  font-size: 0.75em;
+}
+
+nav ul {
+  padding: 0;
+  margin-left: 1.5em;
+}
+
+nav li {
+  display: inline-block;
+  list-style-type: none;
+  margin-right: 1.25em;
+}
+
+nav li a {
+  position: relative;
+  text-decoration: none;
+  color: var(--white);
+}
+
+nav li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  border-radius: 1px;
+  background-color: var(--greenyellow);
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.4s ease-in-out;
+}
+
+nav li a:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+nav li a:hover {
+  color: var(--greenyellow);
+  transform: scale(1.1);
+}
+
+body.dark-mode nav li a::before {
+  background-color: var(--orangered);
+}
+
+body.dark-mode nav li a:hover {
+  color: var(--orangered);
+}
+
+body.dark-mode nav li a:hover::before {
+  background-color: var(--orangered);
+}
+
+.theme-container {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 1.75em;
+  position: relative;
+  width: 3em;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  background-color: var(--light-grey);
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: 0.5s;
+}
+
+.slider:before {
+  background-color: var(--white);
+  bottom: 0.25em;
+  content: "";
+  height: 1.25em;
+  left: 0.25em;
+  position: absolute;
+  transition: 0.5s;
+  width: 1.25em;
+}
+
+input:checked + .slider {
+  background-color: var(--black);
+}
+
+input:checked + .slider:before {
+  transform: translateX(1.25em);
+}
+
+.slider.round {
+  border-radius: 1.75em;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.dark-mode .fa-solid {
+  color: var(--black);
+}
+
+main {
+  display: grid;
+  justify-content: center;
+  padding: 2em;
+}
+
+.hero-container {
+  background-image: url("./img/background-image.jpg");
+  /*https://www.superudisplay.com/wp-content/uploads/2022/10/electronics-care-home-appliance-store-thumbnail.jpg*/
+  width: calc(100% - 2em);
+  max-width: 1600px;
+  height: 50vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: 12px;
+  margin: 0 auto;
+  margin-bottom: 4em;
+  cursor: pointer;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 1em;
+  left: 2em;
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.hero-title {
+  font-size: 2em;
+}
+
+#first-section {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 6em;
+}
+
+.image-title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 50%;
+  margin: 0 1em;
+}
+
+.zoomable {
+  height: 100%;
+  width: 100%;
+  max-height: 400px;
+  max-width: 400px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+  flex: 1;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  border-radius: 2px;
+  max-width: 100%;
+  top: 50%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay-bottom {
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  transform: translateY(100%);
+  transition: height 0.3s ease;
+}
+
+.image-container:hover .overlay-bottom {
+  height: 10%;
+  transform: translateY(0);
+}
+
+.overlay-text {
+  color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.25em;
+  cursor: pointer;
+}
+
+#second-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25em;
+  border-radius: 8px;
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.dark-mode #second-section {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+#second-section form {
+  max-width: 400px;
+  width: 100%;
+}
+
+#second-section h2 {
+  margin-bottom: 1.5em;
+}
+
+#second-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#second-section input {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 0.75em;
+}
+
+#form-submit {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 4px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  max-width: 50%;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.dark-mode #form-submit {
+  color: var(--white);
+  background-color: var(--black);
+}
+
+.sign-up-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75em;
+}
+
+.sign-up-link {
+  color: var(--white);
+}
+
+.dark-mode .sign-up-link {
+  color: var(--black);
+}
+
+footer {
+  display: flex;
+  background-color: var(--black);
+  color: var(--white);
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+  width: 100%;
+  padding: 0;
+  height: 2.25em;
+  border-radius: 12px;
+}
+
+.dark-mode footer {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+#back-to-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 1.25em;
+  right: 1.25em;
+  width: 50px;
+  height: 50px;
+  background-color: var(--black);
+  color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 45px;
+  text-align: center;
+  z-index: 1;
+}
+
+.dark-mode #back-to-top {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    max-width: 768px;
+  }
+
+  .title b {
+    font-size: 1em;
+  }
+  
+  .title i {
+    font-size: 0.5em;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+    color: var(--white);
+    font-size: 1.25em;
+    margin-right: 0.5em;
+  }
+
+  .hero-container {
+    height: 30vh;
+    margin-bottom: 1.5em;
+  }
+
+  .hero-title {
+    font-size: 1em;
+  }
+
+  .hero-subtitle {
+    font-size: 0.5em;
+  }
+
+  #first-section {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5em;
+  }
+
+  .image-title {
+    font-size: 1em;
+  }
+
+  .image-container {
+    margin-bottom: 0.5em;
+  }
+
+  .overlay-text {
+    font-size: 0.625em;
+  }
+
+  .overlay {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
+
+  #second-section {
+    padding: 1em;
+  }
+
+  #second-section h2 {
+    text-align: center;
+    font-size: 1em;
+  }
+
+  #second-section form {
+    max-width: 75%;
+  }
+
+  #second-section label, input {
+    font-size: 0.75em;
+  }
+
+  #form-submit {
+    max-width: 75%;
+    font-size: 0.75em;
+  }
+
+  footer {
+    font-size: 0.75em;
+  }
+}
+
+@media (min-width: 768px){
+  .menu-icon {
+      display: none;
+  }
+}

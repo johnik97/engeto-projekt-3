@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <!-- Dinh Hung Nguyen (Honza) -->
+  <!-- honza.nguyendinh@seznam.cz -->
+  <!-- jayjay6688 -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://kit.fontawesome.com/d3971f3d80.js" crossorigin="anonymous"></script>
+    <script src="./script.js" defer></script>
+    <title>Komplexní webová stránka</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="title">
+        <b>DigiWorld</b> - <i>nejlepší online elektroshop</i>
+      </div>
+
+      <nav>
+        <div class="theme-container">
+          <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+          </label>
+        </div>
+        <ul>
+          <li><a href="">Domů</a></li>
+          <li><a href="/#products">Produkty</a></li>
+          <li><a href="/#my-account">Můj účet</a></li>
+        </ul>
+      </nav>
+      <div class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    </header>
+
+    <main>
+      <div class="hero-container">
+        <div class="hero-text">
+          <div class="hero-title">Otevíráme pro Vás novou pobočku</div>
+          <div class="hero-subtitle">Sleva až 50% na vybrané produkty</div>
+        </div>
+      </div>
+
+      <h2 class="image-title">Nejoblíbenější sortimenty roku 2023</h2>
+
+      <section id="first-section">
+        <div class="image-container">
+          <img class="zoomable" src="./img/image1.jpg" alt="Gaming consoles" />
+          <!--https://laverdadnoticias.com/__export/1700242192316/sites/laverdad/img/2023/11/17/rebajas_para_xbox_series_x_s_ps5_y_switch_en_el_buen_fin_2023_de_amazon.png_778524343.png-->
+          <div class="overlay overlay-bottom">
+            <div class="overlay-text">Herní konzole</div>
+          </div>
+        </div>
+        <div class="image-container">
+          <img class="zoomable" src="./img/image2.jpg" alt="Smartphones" />
+          <!--https://www.appleking.cz/blog/wp-content/uploads/2023/02/8156614D-1C63-435C-BB53-4622E9C14E7C.jpeg-->
+          <div class="overlay overlay-bottom">
+            <div class="overlay-text">Chytré telefony</div>
+          </div>
+        </div>
+        <div class="image-container">
+          <img class="zoomable" src="./img/image3.jpg" alt="Headphones" />
+          <!--pphttps://i.pcmag.com/imagery/reviews/07t6yzTnRvFvs8uD2xeYsB0-1..v1639090940.jpg-->
+          <div class="overlay overlay-bottom">
+            <div class="overlay-text">Sluchátka</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="second-section">
+        <h2>Zaregistrujte se a vyhrajte produkty v hodnotě až 10.000 Kč</h2>
+        <form id="registration-form">
+          <label for="name">Jméno a příjmení:</label>
+          <input type="text" id="form-name" required />
+          <label for="email">E-mail:</label>
+          <input type="email" id="form-email" required />
+          <label for="password1">Heslo:</label>
+          <input type="password" id="form-password1" required />
+          <label for="password2">Znovu zadejte heslo:</label>
+          <input type="password" id="form-password2" required />
+          <p id="password-match"></p>
+          <p id="form-validity"></p>
+          <input type="button" id="form-submit" value="Potvrdit registraci" />
+          <p class="sign-up-info">
+            <i
+              >Máte u nás registraci? Přihlašte se
+              <a class="sign-up-link" href="/#sign-up">zde</a></i
+            >
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <div id="back-to-top" class="back-to-top">&uarr;</div>
+
+    <footer>
+      <p>&copy; 2024 Dinh Hung Nguyen</p>
+    </footer>
+  </body>
+</html>
